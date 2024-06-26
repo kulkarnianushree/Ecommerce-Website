@@ -1,0 +1,11 @@
+.box{
+    background-color: grey;
+    height: 8rem;
+    width: 100%;
+}
+.box-p{
+    margin-left:35%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 5rem;
+    color: white;
+}

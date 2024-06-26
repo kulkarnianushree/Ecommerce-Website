@@ -1,0 +1,51 @@
+.display-container {
+    margin: 20px; /* Adds some margin around the display container */
+    padding: 20px; /* Adds padding inside the display container */
+    border: 1px solid #ccc; /* Adds a border for better visibility */
+  
+    /* Flexbox styles for centering and spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px; /* Adds margin bottom for spacing */
+  }
+  
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px; /* Adds margin bottom for spacing */
+  }
+  
+  .cart-table th, .cart-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .cart-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .item-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-image {
+    max-width: 50px; /* Adjust image size as needed */
+    margin-right: 10px; /* Adds margin for spacing between image and text */
+  }
+  
+  .h1 {
+    margin-left: 50rem;
+  }
+   
+  
+  
