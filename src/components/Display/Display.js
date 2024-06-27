@@ -1,5 +1,5 @@
 import React from 'react';
-import './Display.css'; // Import the CSS file for styling
+import './Display.css'; 
 import { Button } from 'react-bootstrap';
 
 const Display = (props) => {
@@ -8,7 +8,7 @@ const Display = (props) => {
   };
 
   const QuantityChangeHandler = (id, event) => {
-    const quantity = parseInt(event.target.value);
+    const quantity = Number(event.target.value);
     if (quantity > 0) {
       props.onUpdateQuantity(id, quantity);
     }

@@ -18,8 +18,17 @@ function App() {
   ];
 
   const setDataHandler = (product) => {
-    setCount(count + 1);
-    setUserData((prevUserData) => [...prevUserData, { ...product, quantity: 1 }]);
+    setUserData((prevUserData) => {
+      const existingProductIndex = prevUserData.findIndex(item => item.id === product.id);
+      if (existingProductIndex !== -1) {
+        const updatedUserData = [...prevUserData];
+        updatedUserData[existingProductIndex].quantity += 1;
+        return updatedUserData;
+      } else {
+        setCount(count + 1);
+        return [...prevUserData, { ...product, quantity: 1 }];
+      }
+    });
   };
 
   const DeleteDataHandler = (id) => {
@@ -30,7 +39,7 @@ function App() {
   const UpdateQuantityHandler = (id, quantity) => {
     setUserData((prevUserData) =>
       prevUserData.map(item =>
-        item.id === id ? { ...item, quantity: quantity } : item
+        item.id === id ? { ...item, quantity: quantity} : item
       )
     );
   };
