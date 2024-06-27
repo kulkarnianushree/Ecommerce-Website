@@ -1,7 +1,7 @@
 import React from "react";
 import ProductItem from "./ProductItem";
 import "./Product.css";
-
+import { Button } from 'react-bootstrap';
 const Product = (props) => {
   const ButtonClickHandler = (id) =>{
     const Product = props.productlist.find((product)=>(product.id === id))
@@ -19,6 +19,7 @@ const Product = (props) => {
           <button className="add-to-cart-button" onClick={()=>ButtonClickHandler(item.id)}>Add To Cart</button>
         </div>
       ))}
+      <Button variant="dark" >See Cart</Button>
     </div>
   );
 };
