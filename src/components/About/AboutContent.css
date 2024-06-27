@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjust the gap as needed */
+    padding: 20px; /* Optional: Add padding around the container */
+  }
+  
+  .image-container {
+    flex-shrink: 0;
+  }
+  
+  .rounded-image {
+    width: 150px; /* Set the width */
+    height: 150px; /* Set the height */
+    border-radius: 50%; /* Make the image rounded */
+  }
+  
+  .text-container {
+    flex-grow: 1;
+  }
+  .main{
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 3rem;
+    font-size: 3rem;
+  }
