@@ -1,22 +1,26 @@
-import React from "react";
-import { Container, Button, Navbar, Nav } from "react-bootstrap";
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink} from 'react-router-dom';
+import './Heading.css';
 
 const Heading = (props) => {
+
   return (
-    <Navbar bg="dark" expand="lg" variant="dark">
-      <Container fluid>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-          <Nav className="d-flex">
-            <Nav.Link as={NavLink} to='/Home' className="mx-3">Home</Nav.Link>
-            <Nav.Link as={NavLink} to='/Store' className="mx-3">Store</Nav.Link>
-            <Nav.Link as={NavLink} to='/About' className="mx-3">About</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-        <Button variant="danger" onClick={props.onChoose}>Cart {props.count}</Button>
-      </Container>
-    </Navbar>
+    <div className=''>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/Home" exact activeClassName="active">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/Store" activeClassName="active">Store</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" activeClassName="active">About</NavLink>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
   );
 };
 

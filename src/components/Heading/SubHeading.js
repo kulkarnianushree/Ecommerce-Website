@@ -1,9 +1,11 @@
 import './SubHeading.css'
-const SubHeading = ()=>{
-    return(
-        <div className='box'>
+
+const SubHeading = ({ isHome }) => {
+    return (
+        <div className={`box ${isHome ? 'home-box' : ''}`}>
             <p className='box-p'>The Generics</p>
         </div>
     )
 }
+
 export default SubHeading

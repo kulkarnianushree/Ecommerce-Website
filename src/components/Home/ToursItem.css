@@ -1,0 +1,31 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem; /* Adjust the margin as needed */
+}
+
+.tours-table {
+    border-collapse: separate;
+    border-spacing: 0 0.5rem; /* Add space between rows */
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px; /* Adjust the max-width as needed */
+}
+
+.tours-table th, .tours-table td {
+    padding: 0.5rem 1rem; /* Adjust the padding as needed */
+    text-align: left; /* Adjust text alignment as needed */
+}
+
+.tours-table th {
+    background-color: #f8f8f8; /* Optional: Add background color to header */
+}
+
+.tours-table tr {
+    background-color: #ffffff; /* Add background color to rows */
+    border-bottom: 1px solid #ddd; /* Optional: Add border to rows */
+}
+
+.tours-table tr:hover {
+    background-color: #f1f1f1; /* Optional: Add hover effect */
+}

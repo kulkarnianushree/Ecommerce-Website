@@ -25,4 +25,10 @@
   .add-to-cart-button:hover {
     background-color: #138496;
   }
-  
+  .see-cart{
+    align-items: center;
+    justify-content: center;
+    margin-left: 40rem;
+    width: 5rem;
+    
+  }

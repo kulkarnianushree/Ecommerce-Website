@@ -4,7 +4,7 @@ import './AboutContent.css';
 const AboutContent = () => {
   return (
     <React.Fragment>
-        <div className='main'>ABOUT</div>
+        <div className="about-title">ABOUT</div>
         <div className="container">
             <div className="image-container">
                 <img 
