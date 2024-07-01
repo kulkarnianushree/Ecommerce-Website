@@ -17,6 +17,9 @@ const Heading = (props) => {
           <li>
             <NavLink to="/about" activeClassName="active">About</NavLink>
           </li>
+          <li>
+            <NavLink to="/Contact" activeClassName='active'>Contact Us</NavLink>
+          </li>
 
         </ul>
       </nav>
