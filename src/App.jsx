@@ -1,11 +1,11 @@
 // src/App.js
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutPage from './Pages/About';
 import HomePage from './Pages/Home';
 import RootLayout from './Pages/Root';
 import StorePage from './Pages/Store';
-import ContactPage from "./Pages/Contact";
+import ContactPage from './Pages/Contact';
 import ProductDetails from './Pages/ProductDetails';
 import Login from './Pages/Login';
 
@@ -16,24 +16,20 @@ const products = [
   { id: 4, title: 'Blue Color', price: 100, imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png' }
 ];
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <RootLayout />,
-    children: [
-      { path: '/About', element: <AboutPage /> },
-      { path: '/Store', element: <StorePage /> },
-      { path: '/Home', element: <HomePage /> },
-      { path: '/Contact', element: <ContactPage /> },
-      { path: '/ProductDetails/:productId', element: <ProductDetails products={products} /> },
-      { path: '/Login',element:<Login/>}
-    ]
-  }
-]);
-
 function App() {
   return (
-    <RouterProvider router={router}></RouterProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="About" element={<AboutPage />} />
+          <Route path="Store" element={<StorePage />} />
+          <Route path="Contact" element={<ContactPage />} />
+          <Route path="ProductDetails/:productId" element={<ProductDetails products={products} />} />
+          <Route path="Login" element={<Login />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
