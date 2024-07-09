@@ -1,0 +1,41 @@
+/* General styling for the product details page */
+.product-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .product-details img {
+    width: 50%; /* Set the width to medium size (50% of the container) */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Center the image and add bottom margin */
+  }
+  
+  .user-reviews {
+    margin-top: 30px;
+  }
+  
+  .user-reviews h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .user-review {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .user-review h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .user-review p {
+    margin: 5px 0 0;
+    font-size: 16px;
+  }
+  
