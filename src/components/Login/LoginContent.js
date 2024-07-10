@@ -15,7 +15,7 @@ const LoginContent = () => {
         const password = passwordInputRef.current.value;
 
         try {
-            const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?keyAIzaSyBIK-IBlNP0POvmW1SYCGZLBPHPo1jiDRA', {
+            const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?keyAIzaSyBIK-IBlNP0POvmW1SYCGZLBPHPo1jiDRA', {
                 method: 'POST',
                 body: JSON.stringify({
                     email: email,
@@ -27,13 +27,13 @@ const LoginContent = () => {
                 }
             });
 
+            const data = await response.json();
             if (!response.ok) {
-                throw new Error('Authentication failed!');
+                throw new Error(data.error.message || 'Authentication failed!');
             }
 
-            const data = await response.json();
             authCtx.login(data.idToken);
-            console.log(data)
+            console.log(data);
         } catch (error) {
             console.error(error.message);
         }

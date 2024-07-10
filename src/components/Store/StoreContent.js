@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Product from "../Product/Product";
 import Display from "../Display/Display";
 import CartButton from "./CartButton";
-
 
 const StoreContent = () => {
   const [count, setCount] = useState(0);
@@ -22,8 +21,8 @@ const StoreContent = () => {
       if (existingProductIndex !== -1) {
         const updatedUserData = [...prevUserData];
         updatedUserData[existingProductIndex].quantity += 1;
-        alert('Your Product is already In the cart')
-        setCount(count+1)
+        alert('Your Product is already in the cart');
+        setCount(count + 1);
         return updatedUserData;
       } else {
         setCount(count + 1);
@@ -31,12 +30,26 @@ const StoreContent = () => {
       }
     });
   };
-  const CartButtonHandler =()=>{
-    setShow(true)
-  } 
-  const SeeCartButtonHandler = ()=>{
-    setShow(true)
-  }
+
+  const CartButtonHandler = async () => {
+    setShow(true);
+    try {
+      const response = await fetch('https://crudcrud.com/api/abc73fe04f3745fdb2557221439c7554/cartItems');
+      if (!response.ok) {
+        throw new Error('Failed to fetch cart items');
+      }
+      const data = await response.json();
+      setUserData(data);
+      setCount(data.length); // update the count based on fetched data
+      console.log('Cart items fetched successfully:', data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const SeeCartButtonHandler = () => {
+    setShow(true);
+  };
 
   const DeleteDataHandler = (id) => {
     setCount(count - 1);
@@ -56,13 +69,13 @@ const StoreContent = () => {
   };
 
   const PurchaseButtonHandler = () => {
-    alert('Thanks for Purchasing the Product. Happy Shopping!');
+    alert('Thanks for purchasing the product. Happy shopping!');
   };
 
   return (
     <div>
       <Product productlist={ProductArr} onsetData={setDataHandler} onClick={SeeCartButtonHandler} />
-      <CartButton onClick={CartButtonHandler} count={count}/>
+      <CartButton onClick={CartButtonHandler} count={count} />
       {show && (
         <Display
           data={userData}

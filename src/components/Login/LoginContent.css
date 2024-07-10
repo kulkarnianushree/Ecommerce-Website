@@ -10,6 +10,9 @@
 
 /* Styling for the form */
 .login-form {
+    width: 50%; /* Set the width to 50% of the container */
+    max-width: 500px; /* Set a maximum width */
+    min-width: 300px; /* Set a minimum width */
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -46,4 +49,11 @@
 
 .login-form button:hover {
     background-color: #0056b3;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .login-form {
+        width: 80%;
+    }
 }

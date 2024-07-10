@@ -1,6 +1,5 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import AboutPage from './Pages/About';
 import HomePage from './Pages/Home';
 import RootLayout from './Pages/Root';
@@ -8,6 +7,7 @@ import StorePage from './Pages/Store';
 import ContactPage from './Pages/Contact';
 import ProductDetails from './Pages/ProductDetails';
 import Login from './Pages/Login';
+import AuthContext from './store/auth-context';
 
 const products = [
   { id: 1, title: 'Colors', price: 100, imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png' },
@@ -17,16 +17,19 @@ const products = [
 ];
 
 function App() {
+  const authCtx = useContext(AuthContext);
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<RootLayout />}>
-          <Route index element={<HomePage />} />
+          <Route path='Home' element={<HomePage />} />
           <Route path="About" element={<AboutPage />} />
-          <Route path="Store" element={<StorePage />} />
+          {!authCtx.isloggedin && <Route path='/Store' element={<StorePage />} />}
           <Route path="Contact" element={<ContactPage />} />
           <Route path="ProductDetails/:productId" element={<ProductDetails products={products} />} />
-          <Route path="Login" element={<Login />} />
+          {!authCtx.isloggedin && <Route path="Login" element={<Login />} />}
+          <Route path='*' element={<Navigate to='/Login' replace />} />
         </Route>
       </Routes>
     </Router>
